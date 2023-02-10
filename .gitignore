@@ -5,3 +5,5 @@
 .images
 .data
 .libs
+.Sensor
+.sensor_files
