@@ -1,47 +1,38 @@
 ---
-#the first part in this is the yaml
-title: "sensor"
-subtitle: "⚔<br/>with xaringan"
-author: "Diana Mathai"
-#institute: "RStudio, PBC"
-#date: "2016/12/12 (updated: `r Sys.Date()`)"
+title: "Sensor"
+subtitle: "MODIS"  
+author: 
+  - "Diana Mathai"
+#date: '`r Sys.Date()`'
 output:
   xaringan::moon_reader:
-    yolo: false
-    lib_dir: libs
+    css: xaringan-themer.css
     nature:
       slideNumberFormat: "%current%"
-      highlightStyle: github      #highlighting syntax for code
-      highlightLines: true        #code line highlighting
-      ratio: 16:9                   #can try 4:3 for standard size
-      countIncrementalSlides: false   #increment slide counting
-      beforeInit: "macros.js"
-      css: ["default", "mytheme.scss"]
-      autoplay:
-        interval: 30000
-        loop: true
-      titleSlideClass: [top, left, inverse]
+      highlightStyle: github
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: true
 ---
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
 
-knitr::opts_chunk$set(
-  fig.retina = 2,
-  warning = FALSE,
-  message = FALSE
+```{r xaringan-themer, include=FALSE, warning=FALSE}
+library(xaringanthemer)
+xaringanExtra::use_panelset()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_slide_tone()
+xaringanExtra::use_animate_css()
+xaringanExtra::use_animate_all("slide_left")
+style_duo_accent(
+  primary_color = "#E7F9A9",
+  secondary_color = "#D1F5FF",
+  inverse_header_color = "#FFFFFF"
 )
 
-library(fontawesome)  #icon package
-library(tidyverse)    #packages DS
-
-#style guides
-#GOV.UK Design Stystems
-#Urban Institute Data Visualization Style gUIDE
-#U.S. Web Design System
-#Adele: A design System Respository
-
 ```
+
+
+
 
 class: inverse, right, corner
 
@@ -58,7 +49,7 @@ background-position: contained
 .left[Source:imperativemoocs]
 ---
 layout: center, middle
-
+Class: animated slideInright fadeOutLeft
 
 ## OVERVIEW
 .right-column[
@@ -75,6 +66,7 @@ layout: center, middle
 > Data yield: 44 global data products
 
 > Design life: 6 years
+
 
 ]
 
@@ -214,36 +206,63 @@ Clouds containing many man made aerosols
 ---
 layout: left, middle
 class:  left, middle
-###_LAND_
+###Examples of studies
+[(Kraatz, Khanbilvardi and Romanov, 2016)](https://www.sciencedirect.com/science/article/pii/S0165232X16301999)
 .pull-left[
--
+- Purpose: River Ice Monitoring
+- Study area:Susquehanna River, US
+- Dataset and processing:MODIS 
+  - Data date: 2014, additional: 2002 & 2003
+  - visual Comparison data (CRIOS-CREST River Ice Observing System-MODIS:band1&2 ) date:2002 to 2012 
+  - Aqua reflectance product MYD09GA
 ]
 
 .pull-right[
-
-
+- Bands: 4 _(visible band)_ & 7 _(SWIR)_- to discriminate clouds from snow. _if need be -bands 6 & 7- differentiate b/w land and snow/ snow covered land_
+  + Observation Geometry
+  - grid cell: 0.5km
+  - cloud flag _(STATE_QA bit 0–1)_
+  - Additional source of validation: Landsat 8
+- Other data: discharge data, discharge quality, in situ air temperature,flood observation data
+- MODIS cloud mask- bands 5 _(supplement flase color images- highlight location of snow cover and clouds)_,4 and 7
 ]
 
 ---
 layout: left, middle
 class:  left, middle
 
-###_OCEAN_
+###Example of studies  
+[(Doraiswamy et al., 2005)](https://www.sciencedirect.com/science/article/pii/S0034425705001355)
+
 .pull-left[
-
-
+- Purpose:Crop Yield assessment 
+- Desired output: retrival of crop biophysical parameters, integrated in crop yield simulation models & potential of MODIS 250m
+- Location:McLean County, Illinois, USA, 2000
+- crops- corn and soyabean
+- classification of study area:NASS using Landsat TM images
+  - Bands: all+ thermal (2 scenes- 25th Apr 2000 and 31st Aug 2000)
+- MOD12: not used- as it does not differentiate differnt crops
+- MODIS 250m investigated- its footprint over Landsat TM Classification
 ]
 
 .pull-right[
 
+- MODIS Based classification- Bands 1& 2(8 day-five (DOY 113, 145, 169, 201, 233))
+  - Based on quality assessment and minimum cloud cover
+- Crop yield simulation- crop season data(daily average temperature, solar radiation and rainfall data)
+  - Conducted: by data layers (daily average temp, solar radiation and rainfall)
+  - grid: 1.6 × 1.6 km2 (because- standard grid for road network and landuse in the U.S. Midwest is 1.4 × 1.4 km2)
+- MODIS derived LAI profile was used to modify the crop model simulation of crop emergence
+- LAI and yield simulations (run separately- corn & soybean)
 ]
+
 ---
 layout: left, middle
 class:  left, middle
 
-###_OCEAN_
+###_Reflection_
 .pull-left[
-
+- 
 
 ]
 

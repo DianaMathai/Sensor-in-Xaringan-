@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>sensor</title>
+    <title>Sensor</title>
     <meta charset="utf-8" />
     <meta name="author" content="Diana Mathai" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/default-fonts.css" rel="stylesheet" />
+    <script src="newSensor_files/header-attrs-2.16/header-attrs.js"></script>
+    <link href="newSensor_files/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="newSensor_files/panelset-0.2.6/panelset.js"></script>
+    <link href="newSensor_files/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="newSensor_files/tile-view-0.2.6/tile-view.js"></script>
+    <script src="newSensor_files/tone-13.8.34/Tone.js"></script>
+    <script src="newSensor_files/slide-tone-0.2.6/slide-tone.js"></script>
+    <link href="newSensor_files/animate.css-3.7.2/animate.xaringan.css" rel="stylesheet" />
+    <link href="newSensor_files/animate.css-xaringan-3.7.2/animate.slide_left.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
-class: top, left, inverse, title-slide
+class: center, middle, inverse, title-slide
 
 .title[
-# sensor
+# Sensor
 ]
 .subtitle[
-## ⚔<br/>with xaringan
+## MODIS
 ]
 .author[
 ### Diana Mathai
 ]
 
 ---
+
+
+
+
 
 
 
@@ -42,7 +53,7 @@ background-position: contained
 .left[Source:imperativemoocs]
 ---
 layout: center, middle
-
+Class: animated slideInright fadeOutLeft
 
 ## OVERVIEW
 .right-column[
@@ -59,6 +70,7 @@ layout: center, middle
 &gt; Data yield: 44 global data products
 
 &gt; Design life: 6 years
+
 
 ]
 
@@ -198,36 +210,63 @@ Clouds containing many man made aerosols
 ---
 layout: left, middle
 class:  left, middle
-###_LAND_
+###Examples of studies
+[(Kraatz, Khanbilvardi and Romanov, 2016)](https://www.sciencedirect.com/science/article/pii/S0165232X16301999)
 .pull-left[
--
+- Purpose: River Ice Monitoring
+- Study area:Susquehanna River, US
+- Dataset and processing:MODIS 
+  - Data date: 2014, additional: 2002 &amp; 2003
+  - visual Comparison data (CRIOS-CREST River Ice Observing System-MODIS:band1&amp;2 ) date:2002 to 2012 
+  - Aqua reflectance product MYD09GA
 ]
 
 .pull-right[
-
-
+- Bands: 4 _(visible band)_ &amp; 7 _(SWIR)_- to discriminate clouds from snow. _if need be -bands 6 &amp; 7- differentiate b/w land and snow/ snow covered land_
+  + Observation Geometry
+  - grid cell: 0.5km
+  - cloud flag _(STATE_QA bit 0–1)_
+  - Additional source of validation: Landsat 8
+- Other data: discharge data, discharge quality, in situ air temperature,flood observation data
+- MODIS cloud mask- bands 5 _(supplement flase color images- highlight location of snow cover and clouds)_,4 and 7
 ]
 
 ---
 layout: left, middle
 class:  left, middle
 
-###_OCEAN_
+###Example of studies  
+[(Doraiswamy et al., 2005)](https://www.sciencedirect.com/science/article/pii/S0034425705001355)
+
 .pull-left[
-
-
+- Purpose:Crop Yield assessment 
+- Desired output: retrival of crop biophysical parameters, integrated in crop yield simulation models &amp; potential of MODIS 250m
+- Location:McLean County, Illinois, USA, 2000
+- crops- corn and soyabean
+- classification of study area:NASS using Landsat TM images
+  - Bands: all+ thermal (2 scenes- 25th Apr 2000 and 31st Aug 2000)
+- MOD12: not used- as it does not differentiate differnt crops
+- MODIS 250m investigated- its footprint over Landsat TM Classification
 ]
 
 .pull-right[
 
+- MODIS Based classification- Bands 1&amp; 2(8 day-five (DOY 113, 145, 169, 201, 233))
+  - Based on quality assessment and minimum cloud cover
+- Crop yield simulation- crop season data(daily average temperature, solar radiation and rainfall data)
+  - Conducted: by data layers (daily average temp, solar radiation and rainfall)
+  - grid: 1.6 × 1.6 km2 (because- standard grid for road network and landuse in the U.S. Midwest is 1.4 × 1.4 km2)
+- MODIS derived LAI profile was used to modify the crop model simulation of crop emergence
+- LAI and yield simulations (run separately- corn &amp; soybean)
 ]
+
 ---
 layout: left, middle
 class:  left, middle
 
-###_OCEAN_
+###_Reflection_
 .pull-left[
-
+- 
 
 ]
 
@@ -237,14 +276,12 @@ class:  left, middle
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="macros.js"></script>
 <script>var slideshow = remark.create({
 "slideNumberFormat": "%current%",
 "highlightStyle": "github",
 "highlightLines": true,
 "ratio": "16:9",
-"countIncrementalSlides": false,
-"css": ["default", "mytheme.scss"]
+"countIncrementalSlides": true
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
@@ -324,7 +361,6 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
-setInterval(function() {slideshow.gotoNextSlide(); if (slideshow.getCurrentSlideIndex() == slideshow.getSlideCount() - 1) slideshow.gotoFirstSlide();}, 30000);
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {

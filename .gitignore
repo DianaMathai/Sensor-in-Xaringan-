@@ -7,3 +7,7 @@
 .libs
 .Sensor
 .sensor_files
+.basicslide
+.sensor.html
+.sensor.Rmd
+.newSensor_files
