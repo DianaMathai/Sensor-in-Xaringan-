@@ -262,8 +262,14 @@ class:  left, middle
 
 ###_Reflection_
 .pull-left[
-- 
 
+- Data from MODIS will help improve our understanding of earth (land, water and lowe atmosphere)
+- High visibility (every 1-2 days)
+- MODIS data is available in different levels (0,1A, 1B, 2, 2G, 3 and 4)
+- Product distribution level:250m, 500m and 1000m (Spatial resolution)
+- temporal composite:(daily/8-day/16-day/monthly/annual) 
+- MODIS+ MISR +CERES > impact of clouds and aerosols in th eart
+- MODIS measures: properties of clouds
 ]
 
 .pull-right[
