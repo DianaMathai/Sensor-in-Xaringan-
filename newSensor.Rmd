@@ -262,7 +262,6 @@ class:  left, middle
 
 ###_Reflection_
 .pull-left[
-
 - Data from MODIS will help improve our understanding of earth (land, water and lowe atmosphere)
 - High visibility (every 1-2 days)
 - MODIS data is available in different levels (0,1A, 1B, 2, 2G, 3 and 4)
